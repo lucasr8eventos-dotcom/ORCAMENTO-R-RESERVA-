@@ -509,6 +509,7 @@ const EMPRESA_DEFAULT = {
   logo:      LOGO_PADRAO
 };
 let empresa = JSON.parse(localStorage.getItem('rreserva_empresa') || 'null') || { ...EMPRESA_DEFAULT };
+if (!empresa.logo) empresa.logo = LOGO_PADRAO;
 
 // ── ITENS PADRÃO PARA CASA DE LOCAÇÃO ──
 const PRODUTOS_PADRAO = [
