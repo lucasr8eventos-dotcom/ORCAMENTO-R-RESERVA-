@@ -3,32 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sistema de Orçamentos</title>
+<title>R Reserva Corumbá IV – Orçamentos</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --navy: #0f172a;
-    --navy-light: #1e293b;
-    --bg: #f8fafc;
+    --primary: #c9a84c;
+    --primary-dark: #a8893e;
+    --navy: #3a5228;
+    --navy-light: #4a6235;
+    --bg: #f5f2ea;
     --card: #ffffff;
-    --border: #e2e8f0;
-    --text: #0f172a;
-    --muted: #64748b;
+    --border: #d4c99a;
+    --text: #1e2d14;
+    --muted: #7a7252;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-  .app { max-width: 480px; margin: 0 auto; background: var(--card); min-height: 100vh; display: flex; flex-direction: column; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
+  .app { max-width: 480px; margin: 0 auto; background: var(--card); min-height: 100vh; display: flex; flex-direction: column; box-shadow: 0 0 40px rgba(0,0,0,0.10); }
 
   /* ── HEADER ── */
-  .app-header { background: #fff; color: var(--navy); padding: 12px 18px; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--primary); }
+  .app-header { background: var(--navy); color: #fff; padding: 12px 18px; display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--primary); }
   .header-logo { height: 40px; max-width: 80px; flex-shrink: 0; display: none; }
   .header-logo img { height: 100%; width: 100%; object-fit: contain; }
-  .header-text .title { font-size: 16px; font-weight: 800; letter-spacing: 0.3px; color: var(--navy); }
-  .header-text .subtitle { font-size: 11px; color: var(--muted); font-weight: 400; margin-top: 1px; }
-  .header-back { background: none; border: none; color: var(--navy); font-size: 22px; cursor: pointer; padding: 4px 6px; margin-right: 2px; line-height: 1; }
+  .header-text .title { font-size: 16px; font-weight: 800; letter-spacing: 0.3px; color: var(--primary); }
+  .header-text .subtitle { font-size: 11px; color: rgba(255,255,255,0.65); font-weight: 400; margin-top: 1px; }
+  .header-back { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 4px 6px; margin-right: 2px; line-height: 1; }
 
   /* ── SCREENS ── */
   .screen { display: none; flex: 1; flex-direction: column; }
@@ -37,24 +37,24 @@
   /* ── HOME ── */
   .home-content { padding: 22px 18px; flex: 1; }
   .home-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 18px; padding: 22px 20px; margin-bottom: 20px; position: relative; overflow: hidden; }
-  .home-hero::after { content: ''; position: absolute; right: -20px; top: -20px; width: 120px; height: 120px; background: var(--primary); border-radius: 50%; opacity: 0.12; }
-  .home-hero .welcome { font-size: 21px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-  .home-hero .welcome-sub { font-size: 13px; color: rgba(255,255,255,0.6); }
-  .home-hero .btn-novo-hero { margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary); color: #fff; border: none; border-radius: 12px; padding: 14px 20px; font-size: 16px; font-weight: 700; cursor: pointer; width: 100%; font-family: inherit; transition: background 0.15s; }
+  .home-hero::after { content: ''; position: absolute; right: -20px; top: -20px; width: 120px; height: 120px; background: var(--primary); border-radius: 50%; opacity: 0.15; }
+  .home-hero .welcome { font-size: 21px; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+  .home-hero .welcome-sub { font-size: 13px; color: rgba(255,255,255,0.65); }
+  .home-hero .btn-novo-hero { margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary); color: var(--navy); border: none; border-radius: 12px; padding: 14px 20px; font-size: 16px; font-weight: 700; cursor: pointer; width: 100%; font-family: inherit; transition: background 0.15s; }
   .home-hero .btn-novo-hero:active { background: var(--primary-dark); }
-  .home-hero .btn-novo-recibo { margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.1); color: #fff; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 12px 20px; font-size: 15px; font-weight: 600; cursor: pointer; width: 100%; font-family: inherit; transition: background 0.15s; }
-  .home-hero .btn-novo-recibo:active { background: rgba(255,255,255,0.2); }
+  .home-hero .btn-novo-recibo { margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.08); color: #fff; border: 1.5px solid rgba(201,168,76,0.45); border-radius: 12px; padding: 12px 20px; font-size: 15px; font-weight: 600; cursor: pointer; width: 100%; font-family: inherit; transition: background 0.15s; }
+  .home-hero .btn-novo-recibo:active { background: rgba(255,255,255,0.16); }
 
   .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 22px; }
   .quick-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 14px 10px; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
-  .quick-card:active { background: #f1f5f9; border-color: var(--primary); }
+  .quick-card:active { background: #f0ece0; border-color: var(--primary); }
   .quick-card .qc-icon { font-size: 24px; margin-bottom: 5px; display: block; }
   .quick-card .qc-label { font-size: 12px; font-weight: 700; color: var(--text); }
 
-  .setup-banner { background: #fff8e1; border: 1.5px solid #ffe082; border-radius: 12px; padding: 12px 14px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .setup-banner { background: #fdf8e8; border: 1.5px solid var(--border); border-radius: 12px; padding: 12px 14px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; cursor: pointer; }
   .setup-banner .sb-icon { font-size: 22px; flex-shrink: 0; }
-  .setup-banner .sb-text { font-size: 13px; font-weight: 600; color: #7a5800; }
-  .setup-banner .sb-sub { font-size: 11px; color: #a07800; margin-top: 1px; }
+  .setup-banner .sb-text { font-size: 13px; font-weight: 600; color: #5a4a10; }
+  .setup-banner .sb-sub { font-size: 11px; color: #8a7030; margin-top: 1px; }
 
   .section-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 10px; }
 
@@ -65,7 +65,7 @@
   /* ── FORM ── */
   .form-scroll { padding: 16px 18px; flex: 1; overflow-y: auto; }
   .info-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-  .info-badge { background: var(--bg); border-radius: 12px; padding: 10px 14px; }
+  .info-badge { background: var(--bg); border-radius: 12px; padding: 10px 14px; border: 1px solid var(--border); }
   .info-badge .ib-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
   .info-badge .ib-value { font-size: 16px; font-weight: 800; color: var(--text); margin-top: 2px; }
 
@@ -84,28 +84,28 @@
 
   /* ── ITENS ── */
   .itens-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-  .badge-count { background: var(--primary); color: #fff; border-radius: 20px; padding: 1px 8px; font-size: 12px; font-weight: 700; margin-left: 6px; }
+  .badge-count { background: var(--primary); color: var(--navy); border-radius: 20px; padding: 1px 8px; font-size: 12px; font-weight: 700; margin-left: 6px; }
   .btn-add { background: var(--navy); color: #fff; border: none; border-radius: 9px; padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.15s; }
   .btn-add:active { background: var(--navy-light); }
 
-  .item-card { background: #fafafa; border: 1.5px solid var(--border); border-radius: 13px; padding: 13px 14px; margin-bottom: 8px; position: relative; }
+  .item-card { background: #fafaf5; border: 1.5px solid var(--border); border-radius: 13px; padding: 13px 14px; margin-bottom: 8px; position: relative; }
   .item-nome { font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 3px; padding-right: 28px; }
   .item-detalhe { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
   .item-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
   .item-col-label { font-size: 10px; font-weight: 700; color: var(--muted); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.3px; }
   .item-ctrl { width: 100%; border: 1.5px solid var(--border); border-radius: 9px; padding: 7px 10px; font-size: 14px; font-weight: 700; text-align: center; color: var(--text); background: #fff; outline: none; font-family: inherit; }
   .item-ctrl:focus { border-color: var(--primary); }
-  .item-ctrl.readonly { background: #f1f5f9; border-color: #e2e8f0; color: #94a3b8; }
+  .item-ctrl.readonly { background: #f0ece0; border-color: var(--border); color: #9a8c5e; }
   .btn-remove { position: absolute; top: 10px; right: 10px; background: none; border: none; color: #ccc; font-size: 15px; cursor: pointer; line-height: 1; transition: color 0.15s; }
-  .btn-remove:hover { color: var(--primary); }
+  .btn-remove:hover { color: var(--primary-dark); }
 
-  .total-bar { background: var(--navy); color: #fff; border-radius: 14px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-  .total-bar .tl { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500; }
-  .total-bar .tv { font-size: 24px; font-weight: 800; }
+  .total-bar { background: var(--navy); color: #fff; border-radius: 14px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border: 2px solid var(--primary); }
+  .total-bar .tl { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 500; }
+  .total-bar .tv { font-size: 24px; font-weight: 800; color: var(--primary); }
 
   /* ── ACTIONS ── */
   .form-actions { padding: 14px 18px 20px; background: #fff; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 9px; }
-  .btn-pdf { background: var(--primary); color: #fff; border: none; border-radius: 13px; padding: 15px; font-size: 16px; font-weight: 800; cursor: pointer; width: 100%; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-pdf { background: var(--primary); color: var(--navy); border: none; border-radius: 13px; padding: 15px; font-size: 16px; font-weight: 800; cursor: pointer; width: 100%; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .btn-pdf:active { background: var(--primary-dark); }
   .btn-save { background: #fff; color: var(--text); border: 1.5px solid var(--border); border-radius: 13px; padding: 12px; font-size: 14px; font-weight: 600; cursor: pointer; width: 100%; font-family: inherit; }
 
@@ -115,8 +115,8 @@
   .prod-item.inactive { opacity: 0.4; }
   .pi-nome { font-weight: 700; font-size: 14px; color: var(--text); }
   .pi-cat { font-size: 11px; color: var(--muted); margin-top: 2px; }
-  .pi-preco { font-weight: 800; font-size: 14px; color: var(--text); }
-  .btn-fab { position: fixed; bottom: 24px; right: 24px; width: 54px; height: 54px; background: var(--primary); color: #fff; border: none; border-radius: 50%; font-size: 26px; cursor: pointer; box-shadow: 0 4px 18px rgba(230,57,70,0.35); display: flex; align-items: center; justify-content: center; z-index: 50; }
+  .pi-preco { font-weight: 800; font-size: 14px; color: var(--navy); }
+  .btn-fab { position: fixed; bottom: 24px; right: 24px; width: 54px; height: 54px; background: var(--primary); color: var(--navy); border: none; border-radius: 50%; font-size: 26px; cursor: pointer; box-shadow: 0 4px 18px rgba(201,168,76,0.45); display: flex; align-items: center; justify-content: center; z-index: 50; }
 
   /* ── CONFIGURAÇÕES ── */
   .conf-content { padding: 16px 18px; flex: 1; overflow-y: auto; }
@@ -127,18 +127,18 @@
   .logo-placeholder .lp-icon { font-size: 28px; }
   .logo-placeholder .lp-txt { font-size: 12px; font-weight: 600; }
   .logo-hint { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
-  .logo-remove-btn { background: none; border: none; color: var(--primary); font-size: 12px; font-weight: 700; cursor: pointer; margin-bottom: 12px; display: none; font-family: inherit; }
+  .logo-remove-btn { background: none; border: none; color: var(--primary-dark); font-size: 12px; font-weight: 700; cursor: pointer; margin-bottom: 12px; display: none; font-family: inherit; }
 
   /* ── SUGESTÃO CHIP ── */
   .sugestao-chips { display: flex; gap: 6px; margin-top: 5px; flex-wrap: wrap; }
   .chip-sugestao { font-size: 11px; font-weight: 700; background: var(--bg); border: 1.5px solid var(--border); border-radius: 20px; padding: 3px 11px; color: var(--muted); cursor: pointer; transition: border-color 0.15s, color 0.15s; user-select: none; }
-  .chip-sugestao:active { border-color: var(--primary); color: var(--primary); }
+  .chip-sugestao:active { border-color: var(--primary); color: var(--primary-dark); }
 
   /* ── MODAL ── */
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 200; display: flex; align-items: flex-end; }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.50); z-index: 200; display: flex; align-items: flex-end; }
   .modal-overlay.hidden { display: none; }
   .modal-sheet { background: #fff; border-radius: 22px 22px 0 0; width: 100%; max-height: 82vh; overflow-y: auto; padding: 6px 18px 28px; }
-  .modal-handle { width: 38px; height: 4px; background: #ddd; border-radius: 2px; margin: 12px auto 14px; }
+  .modal-handle { width: 38px; height: 4px; background: var(--border); border-radius: 2px; margin: 12px auto 14px; }
   .modal-title { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 14px; }
 
   .prod-option { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
@@ -148,7 +148,7 @@
   .btn-personalizado { background: var(--navy); border-radius: 13px; padding: 14px; text-align: center; color: #fff; font-weight: 700; font-size: 15px; cursor: pointer; margin-top: 14px; }
 
   /* ── TOAST ── */
-  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--navy); color: #fff; padding: 12px 22px; border-radius: 22px; font-size: 14px; font-weight: 600; transition: transform 0.3s; z-index: 999; white-space: nowrap; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--navy); color: var(--primary); padding: 12px 22px; border-radius: 22px; font-size: 14px; font-weight: 600; transition: transform 0.3s; z-index: 999; white-space: nowrap; border: 1px solid var(--primary); }
   .toast.show { transform: translateX(-50%) translateY(0); }
   .hidden { display: none !important; }
 
@@ -164,7 +164,7 @@
       <img id="logoImg" src="" alt="">
     </div>
     <div class="header-text">
-      <div class="title" id="headerTitle">Orçamentos</div>
+      <div class="title" id="headerTitle">R Reserva Corumbá IV</div>
       <div class="subtitle" id="headerSub">Sistema de Orçamentos</div>
     </div>
   </div>
@@ -173,8 +173,8 @@
   <div class="screen active" id="screenHome">
     <div class="home-content">
       <div class="home-hero">
-        <div class="welcome" id="welcomeMsg">Bom dia! 👋</div>
-        <div class="welcome-sub" id="heroSub">Sistema de Orçamentos</div>
+        <div class="welcome" id="welcomeMsg">Bom dia! 🌿</div>
+        <div class="welcome-sub" id="heroSub">R Reserva Corumbá IV</div>
         <button class="btn-novo-hero" onclick="novoOrcamento()">
           <span>＋</span> Novo Orçamento
         </button>
@@ -184,7 +184,7 @@
       </div>
 
       <div id="setupBanner" class="setup-banner hidden" onclick="abrirConfiguracoes()">
-        <div class="sb-icon">🏢</div>
+        <div class="sb-icon">🏡</div>
         <div>
           <div class="sb-text">Configure sua empresa</div>
           <div class="sb-sub">Adicione nome, logo e contato para usar no PDF</div>
@@ -193,8 +193,8 @@
 
       <div class="quick-grid" style="grid-template-columns:repeat(2,1fr);">
         <div class="quick-card" onclick="showScreen('screenProdutos')">
-          <span class="qc-icon">📦</span>
-          <div class="qc-label">Produtos</div>
+          <span class="qc-icon">🏡</span>
+          <div class="qc-label">Itens / Diárias</div>
         </div>
         <div class="quick-card" onclick="abrirConfiguracoes()">
           <span class="qc-icon">⚙️</span>
@@ -218,11 +218,11 @@
         </div>
       </div>
 
-      <div class="section-divider" style="margin-top:0;padding-top:0;border-top:none;">Dados do Cliente</div>
+      <div class="section-divider" style="margin-top:0;padding-top:0;border-top:none;">Dados do Hóspede</div>
 
       <div class="form-group">
-        <label class="form-label">Nome / Razão Social *</label>
-        <input class="form-input" id="inputCliente" placeholder="Nome do cliente ou empresa" autocomplete="off" list="clienteSugestoes">
+        <label class="form-label">Nome completo *</label>
+        <input class="form-input" id="inputCliente" placeholder="Nome do hóspede" autocomplete="off" list="clienteSugestoes">
         <datalist id="clienteSugestoes"><option value="CONSUMIDOR"></datalist>
         <div class="sugestao-chips">
           <span class="chip-sugestao" onclick="document.getElementById('inputCliente').value='CONSUMIDOR'">CONSUMIDOR</span>
@@ -241,23 +241,29 @@
         <input class="form-input" id="inputClienteTelefone" placeholder="(00) 00000-0000" inputmode="tel">
       </div>
       <div class="form-group">
-        <label class="form-label">Endereço</label>
-        <input class="form-input" id="inputClienteEndereco" placeholder="Rua, número, bairro, cidade">
+        <label class="form-label">Endereço de origem</label>
+        <input class="form-input" id="inputClienteEndereco" placeholder="Cidade / Estado">
       </div>
 
-      <div class="section-divider">Proposta</div>
+      <div class="section-divider">Período da Reserva</div>
+      <div class="two-col">
+        <div class="form-group">
+          <label class="form-label">Check-in</label>
+          <input class="form-input" id="inputCheckin" placeholder="dd/mm/aaaa" inputmode="numeric" maxlength="10">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Check-out</label>
+          <input class="form-input" id="inputCheckout" placeholder="dd/mm/aaaa" inputmode="numeric" maxlength="10">
+        </div>
+      </div>
       <div class="form-group">
         <label class="form-label">Validade da proposta</label>
         <input class="form-input" id="inputValidade" readonly>
       </div>
 
       <div class="form-group">
-        <label class="form-label">Previsão de Entrega</label>
-        <input class="form-input" id="inputEntrega" placeholder="dd/mm/aaaa" inputmode="numeric" maxlength="10">
-      </div>
-      <div class="form-group">
         <label class="form-label">Observações</label>
-        <textarea class="form-input" id="inputObs" rows="4" placeholder="Informações adicionais, condições, detalhes do serviço…"></textarea>
+        <textarea class="form-input" id="inputObs" rows="4" placeholder="Número de hóspedes, animais, pedidos especiais…"></textarea>
       </div>
 
       <div class="section-divider">
@@ -292,11 +298,11 @@
         </div>
       </div>
 
-      <div class="section-divider" style="margin-top:0;padding-top:0;border-top:none;">Pagador</div>
+      <div class="section-divider" style="margin-top:0;padding-top:0;border-top:none;">Pagador / Hóspede</div>
 
       <div class="form-group">
-        <label class="form-label">Nome / Razão Social *</label>
-        <input class="form-input" id="inputRecPagador" placeholder="Nome do pagador" autocomplete="off">
+        <label class="form-label">Nome completo *</label>
+        <input class="form-input" id="inputRecPagador" placeholder="Nome do hóspede / pagador" autocomplete="off">
       </div>
       <div class="form-group">
         <label class="form-label">CPF / CNPJ</label>
@@ -331,11 +337,11 @@
       </div>
       <div class="form-group">
         <label class="form-label">Referente a *</label>
-        <textarea class="form-input" id="inputRecReferente" rows="4" placeholder="Descrição do que está sendo pago"></textarea>
+        <textarea class="form-input" id="inputRecReferente" rows="4" placeholder="Ex: Diária(s) na R Reserva Corumbá IV – período de 20/06 a 23/06/2025"></textarea>
       </div>
       <div class="form-group">
         <label class="form-label">Local (cidade)</label>
-        <input class="form-input" id="inputRecLocal" placeholder="Brasília" value="Brasília">
+        <input class="form-input" id="inputRecLocal" placeholder="Alexânia-GO" value="Alexânia-GO">
       </div>
       <label class="toggle-row" for="inputRecCanhoto">
         <input type="checkbox" id="inputRecCanhoto" checked>
@@ -353,7 +359,7 @@
   <!-- PRODUTOS -->
   <div class="screen" id="screenProdutos">
     <div class="prod-content">
-      <div class="section-label" style="margin-bottom:12px;">Catálogo de produtos</div>
+      <div class="section-label" style="margin-bottom:12px;">Itens / Diárias cadastradas</div>
       <div id="listaProdutos"></div>
     </div>
     <button class="btn-fab" onclick="novoProduto()">＋</button>
@@ -380,7 +386,7 @@
 
       <div class="form-group">
         <label class="form-label">Nome da empresa *</label>
-        <input class="form-input" id="confNome" placeholder="Ex: Minha Empresa Ltda">
+        <input class="form-input" id="confNome" placeholder="Ex: R Reserva Corumbá IV">
       </div>
       <div class="form-group">
         <label class="form-label">CNPJ</label>
@@ -416,7 +422,7 @@
 <div class="modal-overlay hidden" id="modalProduto">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
-    <div class="modal-title">Escolher produto / serviço</div>
+    <div class="modal-title">Escolher item / diária</div>
     <div id="modalListaProdutos"></div>
     <div class="btn-personalizado" onclick="adicionarPersonalizado()">✏️  Item personalizado</div>
   </div>
@@ -428,8 +434,8 @@
     <div class="modal-handle"></div>
     <div class="modal-title">Item personalizado</div>
     <div class="form-group">
-      <label class="form-label">Nome do produto / serviço</label>
-      <input class="form-input" id="pNome" placeholder="Ex: Consultoria">
+      <label class="form-label">Nome do item</label>
+      <input class="form-input" id="pNome" placeholder="Ex: Diária final de semana">
     </div>
     <div class="form-group">
       <label class="form-label">Detalhe (opcional)</label>
@@ -454,14 +460,14 @@
 <div class="modal-overlay hidden" id="modalNovoProduto">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
-    <div class="modal-title" id="modalNovoProdutoTitle">Novo produto</div>
+    <div class="modal-title" id="modalNovoProdutoTitle">Novo item</div>
     <div class="form-group">
       <label class="form-label">Nome</label>
-      <input class="form-input" id="npNome" placeholder="Nome do produto">
+      <input class="form-input" id="npNome" placeholder="Ex: Diária (semana)">
     </div>
     <div class="form-group">
       <label class="form-label">Categoria</label>
-      <input class="form-input" id="npCat" placeholder="Ex: Serviços, Equipamentos…">
+      <input class="form-input" id="npCat" placeholder="Ex: Diárias, Taxas, Serviços…">
     </div>
     <div class="two-col">
       <div class="form-group">
@@ -471,18 +477,17 @@
       <div class="form-group">
         <label class="form-label">Unidade</label>
         <select class="form-input" id="npUnidade">
-          <option>Unidade</option>
           <option>Diária</option>
-          <option>Mensal</option>
-          <option>Metro</option>
-          <option>Metro linear</option>
+          <option>Unidade</option>
           <option>Serviço</option>
           <option>Pacote</option>
+          <option>Mensal</option>
           <option>Hora</option>
+          <option>Pessoa</option>
         </select>
       </div>
     </div>
-    <button class="btn-pdf" style="margin-top:4px;" onclick="salvarNovoProduto()">Salvar produto</button>
+    <button class="btn-pdf" style="margin-top:4px;" onclick="salvarNovoProduto()">Salvar item</button>
     <button class="btn-save" style="margin-top:8px;" onclick="fecharModalNovoProduto()">Cancelar</button>
   </div>
 </div>
@@ -491,22 +496,47 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ── EMPRESA (dados genéricos configuráveis) ──
-const EMPRESA_DEFAULT = { nome:'', cnpj:'', endereco:'', telefone:'', whatsapp:'', site:'', logo:'' };
+// ── EMPRESA: dados padrão da R Reserva ──
+const EMPRESA_DEFAULT = {
+  nome:      'R Reserva Corumbá IV',
+  cnpj:      '',
+  endereco:  'Corumbá IV – Alexânia-GO',
+  telefone:  '(61) 99996-1628',
+  whatsapp:  '(61) 99986-9094',
+  site:      '',
+  logo:      ''
+};
 let empresa = JSON.parse(localStorage.getItem('app_empresa') || 'null') || { ...EMPRESA_DEFAULT };
+
+// ── ITENS PADRÃO PARA CASA DE LOCAÇÃO ──
+const PRODUTOS_PADRAO = [
+  { id: 1, nome: 'Diária (semana)',           cat: 'Diárias',  valor: 0, unidade: 'Diária',   ativo: true },
+  { id: 2, nome: 'Diária (final de semana)',  cat: 'Diárias',  valor: 0, unidade: 'Diária',   ativo: true },
+  { id: 3, nome: 'Diária (feriado)',          cat: 'Diárias',  valor: 0, unidade: 'Diária',   ativo: true },
+  { id: 4, nome: 'Taxa de limpeza',           cat: 'Taxas',    valor: 0, unidade: 'Serviço',  ativo: true },
+  { id: 5, nome: 'Taxa de check-in',          cat: 'Taxas',    valor: 0, unidade: 'Serviço',  ativo: true },
+  { id: 6, nome: 'Caução (depósito)',         cat: 'Taxas',    valor: 0, unidade: 'Unidade',  ativo: true },
+  { id: 7, nome: 'Adicional por hóspede',     cat: 'Taxas',    valor: 0, unidade: 'Pessoa',   ativo: true },
+  { id: 8, nome: 'Pacote final de semana',    cat: 'Pacotes',  valor: 0, unidade: 'Pacote',   ativo: true },
+  { id: 9, nome: 'Pacote semana completa',    cat: 'Pacotes',  valor: 0, unidade: 'Pacote',   ativo: true },
+  { id:10, nome: 'Aluguel de churrasqueira',  cat: 'Serviços', valor: 0, unidade: 'Diária',   ativo: true },
+  { id:11, nome: 'Serviço de café da manhã',  cat: 'Serviços', valor: 0, unidade: 'Pessoa',   ativo: true },
+  { id:12, nome: 'Transfer (traslado)',       cat: 'Serviços', valor: 0, unidade: 'Serviço',  ativo: false },
+];
 
 // ── STATE ──
 let state = {
-  produtos:        JSON.parse(localStorage.getItem('app_produtos') || '[]'),
+  produtos:        JSON.parse(localStorage.getItem('app_produtos') || 'null') || PRODUTOS_PADRAO,
   orcamentoAtual:  null,
   itens:           [],
   screenHistory:   ['screenHome']
 };
+if (!localStorage.getItem('app_produtos')) {
+  localStorage.setItem('app_produtos', JSON.stringify(state.produtos));
+}
 
 // ── UTILS ──
-const save = () => {
-  localStorage.setItem('app_produtos', JSON.stringify(state.produtos));
-};
+const save = () => { localStorage.setItem('app_produtos', JSON.stringify(state.produtos)); };
 const saveEmpresa = () => localStorage.setItem('app_empresa', JSON.stringify(empresa));
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -548,7 +578,6 @@ function valorPorExtenso(valor) {
     }
     return r;
   }
-  // Regra: usa "e" antes do último bloco se ele for < 100 ou múltiplo exato de 100; caso contrário usa vírgula.
   const ePequenoOuRedondo = n => n < 100 || n % 100 === 0;
   function intExtenso(n) {
     if (n === 0) return '';
@@ -570,9 +599,7 @@ function valorPorExtenso(valor) {
   const inteiros = Math.floor(valor);
   const centavos = Math.round((valor - inteiros) * 100);
   let texto = '';
-  if (inteiros > 0) {
-    texto = intExtenso(inteiros) + (inteiros === 1 ? ' real' : ' reais');
-  }
+  if (inteiros > 0) texto = intExtenso(inteiros) + (inteiros === 1 ? ' real' : ' reais');
   if (centavos > 0) {
     if (texto) texto += ' e ';
     texto += intExtenso(centavos) + (centavos === 1 ? ' centavo' : ' centavos');
@@ -589,7 +616,7 @@ const toast = msg => {
 // ── SAUDAÇÃO ──
 const hour = new Date().getHours();
 document.getElementById('welcomeMsg').textContent =
-  hour < 12 ? 'Bom dia! 👋' : hour < 18 ? 'Boa tarde! 👋' : 'Boa noite! 👋';
+  hour < 12 ? 'Bom dia! 🌿' : hour < 18 ? 'Boa tarde! 🌿' : 'Boa noite! 🌿';
 
 // ── UI DA EMPRESA ──
 function updateEmpresaUI() {
@@ -601,11 +628,9 @@ function updateEmpresaUI() {
   } else {
     logoWrap.style.display = 'none';
   }
-  const nome = empresa.nome || 'Orçamentos';
-  document.getElementById('heroSub').textContent = empresa.nome
-    ? empresa.nome
-    : 'Configure sua empresa em ⚙️ Ajustes';
-  document.title = empresa.nome ? empresa.nome + ' – Orçamentos' : 'Sistema de Orçamentos';
+  const nome = empresa.nome || 'R Reserva Corumbá IV';
+  document.getElementById('heroSub').textContent = empresa.nome || 'R Reserva Corumbá IV';
+  document.title = (empresa.nome || 'R Reserva Corumbá IV') + ' – Orçamentos';
   const banner = document.getElementById('setupBanner');
   banner.classList.toggle('hidden', !!empresa.nome);
   const curScreen = state.screenHistory[state.screenHistory.length - 1];
@@ -623,13 +648,13 @@ function showScreen(id, pushHistory=true) {
 }
 
 function updateHeader(sid) {
-  const nome = empresa.nome || 'Orçamentos';
+  const nome = empresa.nome || 'R Reserva Corumbá IV';
   const map = {
-    screenHome:           [nome,          'Sistema de Orçamentos'],
-    screenOrcamento:      ['Orçamento',   'Preencha os dados'],
-    screenRecibo:         ['Recibo',      'Preencha os dados'],
-    screenProdutos:       ['Produtos',    'Gerenciar catálogo'],
-    screenConfiguracoes:  ['Ajustes',     'Configurar empresa'],
+    screenHome:           [nome,                    'Sistema de Orçamentos'],
+    screenOrcamento:      ['Orçamento',             'Preencha os dados'],
+    screenRecibo:         ['Recibo',                'Preencha os dados'],
+    screenProdutos:       ['Itens / Diárias',       'Gerenciar catálogo'],
+    screenConfiguracoes:  ['Ajustes',               'Configurar empresa'],
   };
   const [title, sub] = map[sid] || [nome, ''];
   document.getElementById('headerTitle').textContent = title;
@@ -645,7 +670,6 @@ function goBack() {
   updateHeader(prev);
 }
 
-
 // ── ORÇAMENTO ──
 function novoOrcamento() {
   state.itens = [];
@@ -658,8 +682,9 @@ function novoOrcamento() {
   document.getElementById('inputClienteEmail').value     = '';
   document.getElementById('inputClienteTelefone').value  = '';
   document.getElementById('inputClienteEndereco').value  = '';
+  document.getElementById('inputCheckin').value          = '';
+  document.getElementById('inputCheckout').value         = '';
   document.getElementById('inputValidade').value         = hoje();
-  document.getElementById('inputEntrega').value          = '';
   document.getElementById('inputObs').value              = '';
   renderItens();
   showScreen('screenOrcamento');
@@ -669,13 +694,14 @@ function getDadosOrcamento() {
   return {
     num:              state.orcamentoAtual.num,
     data:             state.orcamentoAtual.data,
-    cliente:          document.getElementById('inputCliente').value          || 'CONSUMIDOR',
+    cliente:          document.getElementById('inputCliente').value          || 'HÓSPEDE',
     clienteDoc:       document.getElementById('inputClienteDoc').value       || '',
     clienteEmail:     document.getElementById('inputClienteEmail').value     || '',
     clienteTelefone:  document.getElementById('inputClienteTelefone').value  || '',
     clienteEndereco:  document.getElementById('inputClienteEndereco').value  || '',
+    checkin:          document.getElementById('inputCheckin').value          || '',
+    checkout:         document.getElementById('inputCheckout').value         || '',
     validade:         document.getElementById('inputValidade').value         || '30 dias',
-    entrega:          document.getElementById('inputEntrega').value,
     obs:              document.getElementById('inputObs').value,
     itens:            [...state.itens],
     total:            getTotal()
@@ -752,13 +778,13 @@ function showModalProduto() {
   document.getElementById('modalListaProdutos').innerHTML = prods.length
     ? prods.map(p => `
         <div class="prod-option" onclick="adicionarProduto(${p.id})">
-          <div class="po-icon">📦</div>
+          <div class="po-icon">🏡</div>
           <div>
             <div class="po-nome">${p.nome}</div>
             <div class="po-preco">${p.valor>0 ? fmtMoeda(p.valor) : 'Valor a definir'} · ${p.unidade}</div>
           </div>
         </div>`).join('')
-    : '<div style="padding:16px 0;color:#aaa;font-size:14px;text-align:center;">Nenhum produto cadastrado</div>';
+    : '<div style="padding:16px 0;color:#aaa;font-size:14px;text-align:center;">Nenhum item cadastrado</div>';
   document.getElementById('modalProduto').classList.remove('hidden');
 }
 
@@ -799,7 +825,7 @@ function confirmarPersonalizado() {
 function renderListaProdutos() {
   const cont = document.getElementById('listaProdutos');
   if (!state.produtos.length) {
-    cont.innerHTML = '<div class="empty-state"><div class="es-icon">📦</div><div class="es-text">Nenhum produto cadastrado<br><small style="font-size:12px;font-weight:400;">Use o botão + para adicionar</small></div></div>';
+    cont.innerHTML = '<div class="empty-state"><div class="es-icon">🏡</div><div class="es-text">Nenhum item cadastrado<br><small style="font-size:12px;font-weight:400;">Use o botão + para adicionar</small></div></div>';
     return;
   }
   cont.innerHTML = state.produtos.map((p,i) => `
@@ -819,8 +845,8 @@ function renderListaProdutos() {
 
 function novoProduto() {
   ['npNome','npCat','npValor'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('npUnidade').value = 'Unidade';
-  document.getElementById('modalNovoProdutoTitle').textContent = 'Novo produto';
+  document.getElementById('npUnidade').value = 'Diária';
+  document.getElementById('modalNovoProdutoTitle').textContent = 'Novo item';
   document.getElementById('modalNovoProduto').dataset.editIdx = '';
   document.getElementById('modalNovoProduto').classList.remove('hidden');
 }
@@ -831,7 +857,7 @@ function editarProduto(idx) {
   document.getElementById('npCat').value     = p.cat;
   document.getElementById('npValor').value   = p.valor > 0 ? p.valor.toFixed(2).replace('.',',') : '';
   document.getElementById('npUnidade').value = p.unidade;
-  document.getElementById('modalNovoProdutoTitle').textContent = 'Editar produto';
+  document.getElementById('modalNovoProdutoTitle').textContent = 'Editar item';
   document.getElementById('modalNovoProduto').dataset.editIdx = idx;
   document.getElementById('modalNovoProduto').classList.remove('hidden');
 }
@@ -856,7 +882,7 @@ function salvarNovoProduto() {
   if (editIdx !== '') state.produtos[parseInt(editIdx)] = { ...state.produtos[parseInt(editIdx)], ...novo };
   else state.produtos.push(novo);
   save(); renderListaProdutos(); fecharModalNovoProduto();
-  toast('✓ Produto salvo!');
+  toast('✓ Item salvo!');
 }
 
 // ── CONFIGURAÇÕES ──
@@ -935,7 +961,7 @@ function novoRecibo() {
   document.getElementById('inputRecValor').value       = '';
   document.getElementById('inputRecExtenso').value     = '';
   document.getElementById('inputRecReferente').value   = '';
-  document.getElementById('inputRecLocal').value       = 'Brasília';
+  document.getElementById('inputRecLocal').value       = 'Alexânia-GO';
   document.getElementById('inputRecForma').value       = 'PIX';
   document.getElementById('inputRecCanhoto').checked   = true;
   const t = new Date();
@@ -993,45 +1019,45 @@ function gerarPDFRecibo() {
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Outfit',Arial,sans-serif; font-size:11pt; color:#0f172a; background:#fff; padding:12mm 14mm; }
+  body { font-family:'Outfit',Arial,sans-serif; font-size:11pt; color:#1e2d14; background:#fff; padding:12mm 14mm; }
   @media print {
     * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
     body { padding:0; }
     @page { margin:12mm 14mm; size:A4 portrait; }
   }
-  .pdf-header { background:#0f172a; color:#fff; padding:12px 16px; display:flex; align-items:center; gap:14px; border-radius:6px 6px 0 0; }
+  .pdf-header { background:#3a5228; color:#fff; padding:12px 16px; display:flex; align-items:center; gap:14px; border-radius:6px 6px 0 0; border-bottom:3px solid #c9a84c; }
   .pdf-header-logo { width:70px; height:70px; object-fit:contain; flex-shrink:0; }
   .pdf-header-empresa { flex:1; }
-  .emp-nome { font-size:12pt; font-weight:800; color:#fff; margin-bottom:4px; }
-  .emp-info { font-size:7.5pt; color:rgba(200,200,220,0.9); line-height:1.7; }
+  .emp-nome { font-size:12pt; font-weight:800; color:#c9a84c; margin-bottom:4px; }
+  .emp-info { font-size:7.5pt; color:rgba(220,210,180,0.9); line-height:1.7; }
   .pdf-header-num { text-align:right; flex-shrink:0; }
-  .rec-num { font-size:11pt; font-weight:800; color:#fff; }
-  .rec-meta { font-size:7.5pt; color:rgba(200,200,220,0.85); margin-top:4px; line-height:1.7; }
-  .pdf-title-bar { background:#2563eb; color:#fff; text-align:center; font-size:10pt; font-weight:800; letter-spacing:1.5px; padding:6px 0; margin-bottom:14px; }
-  .rec-valor-box { background:#f8fafc; border-left:4px solid #2563eb; padding:14px 18px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center; }
-  .rec-valor-label { font-size:8.5pt; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.5px; }
-  .rec-valor-num { font-size:20pt; font-weight:800; color:#0f172a; margin-top:2px; }
+  .rec-num { font-size:11pt; font-weight:800; color:#c9a84c; }
+  .rec-meta { font-size:7.5pt; color:rgba(220,210,180,0.85); margin-top:4px; line-height:1.7; }
+  .pdf-title-bar { background:#c9a84c; color:#3a5228; text-align:center; font-size:10pt; font-weight:800; letter-spacing:1.5px; padding:6px 0; margin-bottom:14px; }
+  .rec-valor-box { background:#f5f2ea; border-left:4px solid #c9a84c; padding:14px 18px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center; }
+  .rec-valor-label { font-size:8.5pt; font-weight:700; color:#7a7252; text-transform:uppercase; letter-spacing:0.5px; }
+  .rec-valor-num { font-size:20pt; font-weight:800; color:#3a5228; margin-top:2px; }
   .rec-corpo { font-size:11pt; line-height:1.85; text-align:justify; margin-bottom:20px; padding:0 4px; }
   .rec-corpo strong { font-weight:700; }
   .rec-extenso { font-style:italic; }
-  .rec-info-grid { background:#f1f5f9; border-radius:6px; padding:12px 14px; margin-bottom:20px; display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; font-size:9pt; }
-  .rec-info-label { font-size:7.5pt; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.3px; }
-  .rec-info-val { font-weight:600; color:#0f172a; }
-  .rec-local-data { text-align:right; font-size:10pt; margin:30px 0 40px; color:#0f172a; }
+  .rec-info-grid { background:#f0ece0; border-radius:6px; padding:12px 14px; margin-bottom:20px; display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; font-size:9pt; }
+  .rec-info-label { font-size:7.5pt; font-weight:700; color:#7a7252; text-transform:uppercase; letter-spacing:0.3px; }
+  .rec-info-val { font-weight:600; color:#1e2d14; }
+  .rec-local-data { text-align:right; font-size:10pt; margin:30px 0 40px; color:#1e2d14; }
   .rec-assinatura { text-align:center; margin:40px auto 0; width:65%; page-break-inside:avoid; break-inside:avoid; }
-  .rec-assin-linha { border-top:1px solid #0f172a; padding-top:6px; font-size:9pt; font-weight:700; color:#0f172a; }
-  .rec-assin-sub { font-size:8pt; color:#64748b; margin-top:2px; }
+  .rec-assin-linha { border-top:1px solid #3a5228; padding-top:6px; font-size:9pt; font-weight:700; color:#3a5228; }
+  .rec-assin-sub { font-size:8pt; color:#7a7252; margin-top:2px; }
   .rec-cut-line { border-top:1.5px dashed #aaa; margin:36px 0 18px; position:relative; text-align:center; page-break-inside:avoid; }
   .rec-cut-line span { background:#fff; padding:0 10px; position:relative; top:-9px; font-size:11pt; color:#999; }
-  .rec-canhoto { border:1px solid #ddd; border-radius:6px; padding:12px 16px; font-size:9pt; page-break-inside:avoid; break-inside:avoid; }
-  .canhoto-header { display:flex; justify-content:space-between; align-items:center; padding-bottom:8px; border-bottom:1px solid #eee; margin-bottom:8px; }
-  .canhoto-titulo { font-size:8.5pt; font-weight:800; letter-spacing:0.5px; color:#0f172a; }
-  .canhoto-valor { font-size:12pt; font-weight:800; color:#2563eb; }
+  .rec-canhoto { border:1px solid #d4c99a; border-radius:6px; padding:12px 16px; font-size:9pt; page-break-inside:avoid; break-inside:avoid; }
+  .canhoto-header { display:flex; justify-content:space-between; align-items:center; padding-bottom:8px; border-bottom:1px solid #e8e0c8; margin-bottom:8px; }
+  .canhoto-titulo { font-size:8.5pt; font-weight:800; letter-spacing:0.5px; color:#1e2d14; }
+  .canhoto-valor { font-size:12pt; font-weight:800; color:#3a5228; }
   .canhoto-body { line-height:1.7; color:#444; font-size:8.5pt; }
-  .canhoto-body strong { color:#0f172a; }
+  .canhoto-body strong { color:#1e2d14; }
   .canhoto-assin { margin-top:18px; text-align:center; }
-  .canhoto-linha { border-top:1px solid #0f172a; margin:0 auto; width:65%; padding-top:4px; font-size:7.5pt; color:#64748b; }
-  .pdf-footer { background:#0f172a; color:rgba(180,180,210,0.9); font-size:7.5pt; padding:8px 12px; display:flex; justify-content:space-between; border-radius:0 0 6px 6px; margin-top:18px; }
+  .canhoto-linha { border-top:1px solid #3a5228; margin:0 auto; width:65%; padding-top:4px; font-size:7.5pt; color:#7a7252; }
+  .pdf-footer { background:#3a5228; color:rgba(220,210,180,0.9); font-size:7.5pt; padding:8px 12px; display:flex; justify-content:space-between; border-radius:0 0 6px 6px; margin-top:18px; border-top:2px solid #c9a84c; }
   .rec-corpo, .rec-valor-box, .rec-info-grid, .rec-local-data { page-break-inside:avoid; break-inside:avoid; }
 </style>
 </head>
@@ -1039,7 +1065,7 @@ function gerarPDFRecibo() {
   <div class="pdf-header">
     ${logoHtml}
     <div class="pdf-header-empresa">
-      <div class="emp-nome">${esc(empresa.nome) || 'EMPRESA'}</div>
+      <div class="emp-nome">${esc(empresa.nome) || 'R RESERVA CORUMBÁ IV'}</div>
       ${empInfoLines ? `<div class="emp-info">${empInfoLines}</div>` : ''}
     </div>
     <div class="pdf-header-num">
@@ -1067,7 +1093,7 @@ function gerarPDFRecibo() {
   <div class="rec-local-data">${esc(localData)}.</div>
 
   <div class="rec-assinatura">
-    <div class="rec-assin-linha">${esc(empresa.nome) || 'Recebedor'}</div>
+    <div class="rec-assin-linha">${esc(empresa.nome) || 'R Reserva Corumbá IV'}</div>
     ${empresa.cnpj ? `<div class="rec-assin-sub">CNPJ: ${esc(empresa.cnpj)}</div>` : ''}
   </div>
 
@@ -1080,17 +1106,17 @@ function gerarPDFRecibo() {
       <span class="canhoto-valor">${fmtMoeda(valor)}</span>
     </div>
     <div class="canhoto-body">
-      <div><strong>Pagador:</strong> ${esc(pagador)}${pagadorDoc ? ` &nbsp;<span style="color:#64748b">(${esc(pagadorDoc)})</span>` : ''}</div>
+      <div><strong>Pagador:</strong> ${esc(pagador)}${pagadorDoc ? ` &nbsp;<span style="color:#7a7252">(${esc(pagadorDoc)})</span>` : ''}</div>
       <div><strong>Referente a:</strong> ${esc(referente).replace(/\n/g,' ')}</div>
       <div><strong>Forma:</strong> ${esc(forma)} &nbsp;·&nbsp; <strong>Data:</strong> ${esc(data)}</div>
     </div>
     <div class="canhoto-assin">
-      <div class="canhoto-linha">${esc(empresa.nome) || 'Recebedor'}</div>
+      <div class="canhoto-linha">${esc(empresa.nome) || 'R Reserva Corumbá IV'}</div>
     </div>
   </div>` : ''}
 
   <div class="pdf-footer">
-    <span>${pdfFooterLeft || 'Recibo'}</span>
+    <span>${pdfFooterLeft || 'R Reserva Corumbá IV'}</span>
     <span>Recibo Nº ${esc(num)} · ${esc(data)}</span>
   </div>
   <script>window.onload=function(){window.print()};<\/script>
@@ -1104,7 +1130,7 @@ function gerarPDFRecibo() {
   else setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 
-// ── PDF ──
+// ── PDF ORÇAMENTO ──
 function gerarPDF() {
   if (!state.itens.length) { toast('Adicione pelo menos um item'); return; }
   const d = getDadosOrcamento();
@@ -1119,18 +1145,16 @@ function gerarPDF() {
     </tr>`;
   }).join('');
 
-  const opcionais = [
-    d.entrega && ['Previsão de Entrega', d.entrega],
-  ].filter(Boolean);
+  const periodo = [d.checkin, d.checkout].filter(Boolean).join(' → ');
 
   const clienteGrid = [
-    ['Cliente',  d.cliente],
+    ['Hóspede',  d.cliente],
     d.clienteDoc      && ['CPF / CNPJ',  d.clienteDoc],
     d.clienteEmail    && ['E-mail',      d.clienteEmail],
     d.clienteTelefone && ['Telefone',    d.clienteTelefone],
-    d.clienteEndereco && ['Endereço',    d.clienteEndereco],
-    ['Validade', d.validade],
-    ...opcionais
+    d.clienteEndereco && ['Origem',      d.clienteEndereco],
+    periodo           && ['Período',     periodo],
+    ['Validade',  d.validade],
   ].filter(Boolean).map(([l,v]) => `<div><div class="cl-label">${esc(l)}</div><div class="cl-val">${esc(v)}</div></div>`).join('');
 
   const obsHtml = d.obs
@@ -1161,54 +1185,54 @@ function gerarPDF() {
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Outfit',Arial,sans-serif; font-size:10pt; color:#0f172a; background:#fff; padding:12mm 14mm; }
+  body { font-family:'Outfit',Arial,sans-serif; font-size:10pt; color:#1e2d14; background:#fff; padding:12mm 14mm; }
   @media print {
     * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
     body { padding:0; }
     @page { margin:12mm 14mm; size:A4 portrait; }
   }
-  .pdf-header { background:#0f172a; color:#fff; padding:12px 16px; display:flex; align-items:center; gap:14px; border-radius:6px 6px 0 0; }
+  .pdf-header { background:#3a5228; color:#fff; padding:12px 16px; display:flex; align-items:center; gap:14px; border-radius:6px 6px 0 0; border-bottom:3px solid #c9a84c; }
   .pdf-header-logo { width:70px; height:70px; object-fit:contain; flex-shrink:0; }
   .pdf-header-empresa { flex:1; }
-  .emp-nome { font-size:12pt; font-weight:800; color:#fff; margin-bottom:4px; }
-  .emp-info { font-size:7.5pt; color:rgba(200,200,220,0.9); line-height:1.7; }
+  .emp-nome { font-size:12pt; font-weight:800; color:#c9a84c; margin-bottom:4px; }
+  .emp-info { font-size:7.5pt; color:rgba(220,210,180,0.9); line-height:1.7; }
   .pdf-header-num { text-align:right; flex-shrink:0; }
-  .orc-num { font-size:11pt; font-weight:800; color:#fff; }
-  .orc-meta { font-size:7.5pt; color:rgba(200,200,220,0.85); margin-top:4px; line-height:1.7; }
-  .pdf-title-bar { background:#2563eb; color:#fff; text-align:center; font-size:9pt; font-weight:800; letter-spacing:1px; padding:5px 0; margin-bottom:12px; }
-  .pdf-section-title { background:#f8fafc; font-size:8pt; font-weight:800; color:#0f172a; letter-spacing:0.5px; text-transform:uppercase; padding:5px 8px; margin-bottom:8px; border-left:3px solid #2563eb; }
+  .orc-num { font-size:11pt; font-weight:800; color:#c9a84c; }
+  .orc-meta { font-size:7.5pt; color:rgba(220,210,180,0.85); margin-top:4px; line-height:1.7; }
+  .pdf-title-bar { background:#c9a84c; color:#3a5228; text-align:center; font-size:9pt; font-weight:800; letter-spacing:1px; padding:5px 0; margin-bottom:12px; }
+  .pdf-section-title { background:#f5f2ea; font-size:8pt; font-weight:800; color:#1e2d14; letter-spacing:0.5px; text-transform:uppercase; padding:5px 8px; margin-bottom:8px; border-left:3px solid #c9a84c; }
   .pdf-cliente-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 20px; margin-bottom:12px; font-size:9pt; }
-  .cl-label { font-size:7.5pt; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.3px; }
-  .cl-val { font-weight:600; color:#0f172a; }
+  .cl-label { font-size:7.5pt; font-weight:700; color:#7a7252; text-transform:uppercase; letter-spacing:0.3px; }
+  .cl-val { font-weight:600; color:#1e2d14; }
   .pdf-table { width:100%; border-collapse:collapse; margin-bottom:10px; font-size:8.5pt; }
   .pdf-table thead { display:table-header-group; }
   .pdf-table tr { page-break-inside:avoid; break-inside:avoid; }
-  .pdf-table thead tr { background:#0f172a; color:#fff; }
+  .pdf-table thead tr { background:#3a5228; color:#fff; }
   .pdf-table thead th { padding:6px 7px; text-align:left; font-weight:700; font-size:8pt; }
   .pdf-table thead th.right { text-align:right; }
-  .pdf-table tbody tr:nth-child(even) { background:#f1f5f9; }
-  .pdf-table tbody td { padding:7px; border-bottom:1px solid #e2e8f0; vertical-align:top; }
+  .pdf-table tbody tr:nth-child(even) { background:#f0ece0; }
+  .pdf-table tbody td { padding:7px; border-bottom:1px solid #d4c99a; vertical-align:top; }
   .pdf-table tbody td.center { text-align:center; font-weight:700; }
-  .pdf-table tbody td.subtotal { text-align:right; font-weight:800; color:#2563eb; }
+  .pdf-table tbody td.subtotal { text-align:right; font-weight:800; color:#3a5228; }
   .pdf-total-row, .pdf-assinatura, .pdf-obs { page-break-inside:avoid; break-inside:avoid; }
-  .td-nome { font-weight:700; color:#0f172a; }
-  .td-det { font-size:7.5pt; color:#64748b; margin-top:2px; }
+  .td-nome { font-weight:700; color:#1e2d14; }
+  .td-det { font-size:7.5pt; color:#7a7252; margin-top:2px; }
   .pdf-total-row { display:flex; justify-content:flex-end; margin-bottom:14px; }
-  .pdf-total-box { background:#0f172a; color:#fff; padding:8px 16px; border-radius:6px; display:flex; align-items:center; gap:16px; }
+  .pdf-total-box { background:#3a5228; color:#fff; padding:8px 16px; border-radius:6px; display:flex; align-items:center; gap:16px; border:2px solid #c9a84c; }
   .t-label { font-size:9pt; font-weight:600; color:rgba(255,255,255,0.75); }
-  .t-val { font-size:13pt; font-weight:800; }
-  .pdf-obs { background:#f1f5f9; border-left:3px solid #2563eb; padding:8px 10px; font-size:8.5pt; color:#444; margin-bottom:14px; line-height:1.5; }
+  .t-val { font-size:13pt; font-weight:800; color:#c9a84c; }
+  .pdf-obs { background:#f5f2ea; border-left:3px solid #c9a84c; padding:8px 10px; font-size:8.5pt; color:#444; margin-bottom:14px; line-height:1.5; }
   .pdf-assinatura { display:flex; justify-content:space-between; margin-top:24px; margin-bottom:10px; }
   .assin-col { text-align:center; width:42%; }
-  .assin-linha { border-top:1px solid #bbb; padding-top:6px; font-size:8pt; color:#888; }
-  .pdf-footer { background:#0f172a; color:rgba(180,180,210,0.9); font-size:7.5pt; padding:8px 12px; display:flex; justify-content:space-between; border-radius:0 0 6px 6px; margin-top:12px; }
+  .assin-linha { border-top:1px solid #3a5228; padding-top:6px; font-size:8pt; color:#7a7252; }
+  .pdf-footer { background:#3a5228; color:rgba(220,210,180,0.9); font-size:7.5pt; padding:8px 12px; display:flex; justify-content:space-between; border-radius:0 0 6px 6px; margin-top:12px; border-top:2px solid #c9a84c; }
 </style>
 </head>
 <body>
   <div class="pdf-header">
     ${logoHtml}
     <div class="pdf-header-empresa">
-      <div class="emp-nome">${esc(empresa.nome) || 'EMPRESA'}</div>
+      <div class="emp-nome">${esc(empresa.nome) || 'R RESERVA CORUMBÁ IV'}</div>
       ${empInfoLines ? `<div class="emp-info">${empInfoLines}</div>` : ''}
     </div>
     <div class="pdf-header-num">
@@ -1216,14 +1240,14 @@ function gerarPDF() {
       <div class="orc-meta">Data: ${esc(d.data)}<br>Validade: ${esc(d.validade)}</div>
     </div>
   </div>
-  <div class="pdf-title-bar">PROPOSTA COMERCIAL</div>
-  <div class="pdf-section-title">Dados do Cliente</div>
+  <div class="pdf-title-bar">PROPOSTA DE RESERVA</div>
+  <div class="pdf-section-title">Dados do Hóspede</div>
   <div class="pdf-cliente-grid">${clienteGrid}</div>
-  <div class="pdf-section-title">Itens do Orçamento</div>
+  <div class="pdf-section-title">Itens da Reserva</div>
   <table class="pdf-table">
     <thead><tr>
       <th style="width:7%">Qt.</th>
-      <th style="width:46%">Produto / Serviço</th>
+      <th style="width:46%">Item / Diária</th>
       <th style="width:20%">Valor unit.</th>
       <th class="right" style="width:27%">Subtotal</th>
     </tr></thead>
@@ -1231,17 +1255,17 @@ function gerarPDF() {
   </table>
   <div class="pdf-total-row">
     <div class="pdf-total-box">
-      <span class="t-label">TOTAL DO ORÇAMENTO</span>
+      <span class="t-label">TOTAL DA RESERVA</span>
       <span class="t-val">${fmtMoeda(d.total)}</span>
     </div>
   </div>
   ${obsHtml}
   <div class="pdf-assinatura">
-    <div class="assin-col"><div class="assin-linha">Assinatura do cliente</div></div>
-    <div class="assin-col"><div class="assin-linha">${esc(empresa.nome) || 'Empresa'}</div></div>
+    <div class="assin-col"><div class="assin-linha">Assinatura do hóspede</div></div>
+    <div class="assin-col"><div class="assin-linha">${esc(empresa.nome) || 'R Reserva Corumbá IV'}</div></div>
   </div>
   <div class="pdf-footer">
-    <span>${pdfFooterLeft || 'Sistema de Orçamentos'}</span>
+    <span>${pdfFooterLeft || 'R Reserva Corumbá IV'}</span>
     <span>Orçamento Nº ${esc(d.num)} · ${esc(d.data)}</span>
   </div>
   <script>window.onload=function(){window.print()};<\/script>
@@ -1285,13 +1309,16 @@ document.getElementById('inputClienteTelefone').addEventListener('input', functi
   this.value = v;
 });
 
-// ── MÁSCARA DATA ENTREGA ──
-document.getElementById('inputEntrega').addEventListener('input', function() {
-  let v = this.value.replace(/\D/g, '').slice(0, 8);
-  v = v.replace(/(\d{2})(\d)/, '$1/$2');
-  v = v.replace(/(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
-  this.value = v;
+// ── MÁSCARA DATA CHECK-IN / CHECK-OUT ──
+['inputCheckin','inputCheckout'].forEach(id => {
+  document.getElementById(id).addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '').slice(0, 8);
+    v = v.replace(/(\d{2})(\d)/, '$1/$2');
+    v = v.replace(/(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+    this.value = v;
+  });
 });
+
 ['pValor','npValor'].forEach(id => {
   const el = document.getElementById(id);
   if (!el) return;
