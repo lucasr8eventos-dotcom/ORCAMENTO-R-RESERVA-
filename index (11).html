@@ -506,7 +506,7 @@ const EMPRESA_DEFAULT = {
   site:      '',
   logo:      ''
 };
-let empresa = JSON.parse(localStorage.getItem('app_empresa') || 'null') || { ...EMPRESA_DEFAULT };
+let empresa = JSON.parse(localStorage.getItem('rreserva_empresa') || 'null') || { ...EMPRESA_DEFAULT };
 
 // ── ITENS PADRÃO PARA CASA DE LOCAÇÃO ──
 const PRODUTOS_PADRAO = [
@@ -523,18 +523,18 @@ const PRODUTOS_PADRAO = [
 
 // ── STATE ──
 let state = {
-  produtos:        JSON.parse(localStorage.getItem('app_produtos') || 'null') || PRODUTOS_PADRAO,
+  produtos:        JSON.parse(localStorage.getItem('rreserva_produtos') || 'null') || PRODUTOS_PADRAO,
   orcamentoAtual:  null,
   itens:           [],
   screenHistory:   ['screenHome']
 };
-if (!localStorage.getItem('app_produtos')) {
-  localStorage.setItem('app_produtos', JSON.stringify(state.produtos));
+if (!localStorage.getItem('rreserva_produtos')) {
+  localStorage.setItem('rreserva_produtos', JSON.stringify(state.produtos));
 }
 
 // ── UTILS ──
-const save = () => { localStorage.setItem('app_produtos', JSON.stringify(state.produtos)); };
-const saveEmpresa = () => localStorage.setItem('app_empresa', JSON.stringify(empresa));
+const save = () => { localStorage.setItem('rreserva_produtos', JSON.stringify(state.produtos)); };
+const saveEmpresa = () => localStorage.setItem('rreserva_empresa', JSON.stringify(empresa));
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmtMoeda   = v => (v||0).toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
@@ -544,15 +544,15 @@ const parseMoeda = s => {
 };
 const hoje       = () => new Date().toLocaleDateString('pt-BR');
 const novoNumOrc = () => {
-  const atual = parseInt(localStorage.getItem('app_seq') || '0') || 0;
+  const atual = parseInt(localStorage.getItem('rreserva_seq') || '0') || 0;
   const n = atual < 109 ? 110 : atual + 1;
-  localStorage.setItem('app_seq', n);
+  localStorage.setItem('rreserva_seq', n);
   return String(n).padStart(4,'0');
 };
 const novoNumRecibo = () => {
-  const atual = parseInt(localStorage.getItem('app_seq_recibo') || '0') || 0;
+  const atual = parseInt(localStorage.getItem('rreserva_seq_recibo') || '0') || 0;
   const n = atual < 109 ? 110 : atual + 1;
-  localStorage.setItem('app_seq_recibo', n);
+  localStorage.setItem('rreserva_seq_recibo', n);
   return String(n).padStart(4,'0');
 };
 
