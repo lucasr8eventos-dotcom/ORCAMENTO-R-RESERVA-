@@ -507,6 +507,7 @@ const EMPRESA_DEFAULT = {
   logo:      ''
 };
 let empresa = JSON.parse(localStorage.getItem('rreserva_empresa') || 'null') || { ...EMPRESA_DEFAULT };
+empresa.logo = ''; // sempre usa logo.png do arquivo, nunca do localStorage
 
 // Pré-carrega logo.png como base64 para uso nos PDFs (que abrem em janela separada)
 let logoPngBase64 = '';
